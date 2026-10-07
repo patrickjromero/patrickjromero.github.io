@@ -222,6 +222,8 @@ section { scroll-margin-top: 90px; }
 .project-copy p { color: #33333a; font-size: 16.5px; }
 .tag-list { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 .tag-list li { font-size: 13px; font-weight: 600; padding: 7px 15px; border-radius: 999px; background: rgba(31, 58, 95, 0.08); color: var(--navy); }
+.card-link { font-weight: 700; color: var(--navy); text-decoration: none; border-bottom: 2px solid var(--navy); padding-bottom: 2px; transition: opacity 0.25s; }
+.card-link:hover { opacity: 0.65; }
 
 /* svg draw animation */
 .draw-line { stroke-dasharray: 600; stroke-dashoffset: 600; }

@@ -84,18 +84,19 @@
 
   /* animated counters */
   function animateCount(el) {
-    var target = parseInt(el.getAttribute("data-count"), 10);
+    var target = parseFloat(el.getAttribute("data-count"));
+    var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
     var prefix = el.getAttribute("data-prefix") || "";
     var suffix = el.getAttribute("data-suffix") || "";
     var dur = 1400, start = null;
     function fmt(n) {
-      return prefix + n.toLocaleString("en-US") + suffix;
+      return prefix + n.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + suffix;
     }
     function step(ts) {
       if (!start) start = ts;
       var p = Math.min((ts - start) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = fmt(Math.round(target * eased));
+      el.textContent = fmt(target * eased);
       if (p < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
